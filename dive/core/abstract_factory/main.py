@@ -7,7 +7,7 @@ from dive.core.abstract_factory.factory import ModernFactory, VictorianFactory
 class Main:
 
     def __init__(self, age: int):
-        self.factory: Factory = VictorianFactory() if age > 60 else ModernFactory()
+        self.factory: Factory = VictorianFactory() if age >= 60 else ModernFactory()
 
     def order_furniture(self) -> Tuple[Chair, CoffeeTable, Sofa]:
         return (
