@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class Color(Enum):
+class Color(str, Enum):
     NATURAL_WOOD = 'NATURAL_WOOD'
     BLACK = 'BLACK'
     WHITE = 'WHITE'
