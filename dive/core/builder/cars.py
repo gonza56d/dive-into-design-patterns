@@ -61,10 +61,10 @@ class Car:
     custom_exhaust: bool = False
 
 
-class CarFactory:
+class CarBuilder:
     
-    def __init__(self) -> None:
-        self.car = Car()
+    def __init__(self, **initial_state) -> None:
+        self.car = Car(**initial_state)
 
     def _get_enum_option(self, option: str | Enum, enum: Enum) -> Enum:
             if option(isinstance, Enum):
@@ -78,9 +78,49 @@ class CarFactory:
                 )
 
     def set_color(self, color: str | Color) -> None:
-        option = self._get_enum_option(color, Color)
-        self.car.color = option
+        self.car.color = self._get_enum_option(color, Color)
 
     def set_tires(self, tires: str | CarTires) -> None:
-        option = self._get_enum_option(tires, CarTires)
-        self.car.tires = option
+        self.car.tires = self._get_enum_option(tires, CarTires)
+
+    def set_engine(self, engine: str | CarEngine) -> None:
+        self.car.color = self._get_enum_option(engine, CarEngine)
+
+    def set_roof(self, roof: str | CarRoof) -> None:
+        self.car.roof = self._get_enum_option(roof, CarRoof)
+
+    def set_air_conditioner(self) -> None:
+        self.car.air_conditioner = True
+
+    def set_stereo(self) -> None:
+        self.car.stereo = True
+
+    def set_gps(self) -> None:
+        self.car.gps = True
+
+    def set_auto_transmission(self) -> None:
+        self.car.auto_transmission = True
+
+    def set_smart_tv(self) -> None:
+        self.car.smart_tv = True
+
+    def set_skylight(self) -> None:
+        self.car.skylight = True
+
+    def set_airbarg(self) -> None:
+        self.car.airbag = True
+
+    def set_vin(self, vin: str) -> None:
+        self.car.vin = vin
+
+    def set_spoiler(self) -> None:
+        self.car.spoiler = True
+
+    def set_neon_lights(self, color: str | Color) -> None:
+        self.car.neon_lights = self._get_enum_option(color, Color)
+
+    def set_xenon_headlights(self) -> None:
+        self.car.xenon_headlights = True
+
+    def set_custom_exhaust(self) -> None:
+        self.car.custom_exhaust = True
