@@ -62,4 +62,25 @@ class Car:
 
 
 class CarFactory:
-    pass
+    
+    def __init__(self) -> None:
+        self.car = Car()
+
+    def _get_enum_option(self, option: str | Enum, enum: Enum) -> Enum:
+            if option(isinstance, Enum):
+                return option
+            try:
+                return enum(option)
+            except ValueError:
+                raise ValueError(
+                    f'"{option}" is not a valid option for {enum.__class__.__name__}.\n'
+                    f'Try one of the following: {",".join(k for k in dict(enum.__members__).keys())}.'
+                )
+
+    def set_color(self, color: str | Color) -> None:
+        option = self._get_enum_option(color, Color)
+        self.car.color = option
+
+    def set_tires(self, tires: str | CarTires) -> None:
+        option = self._get_enum_option(tires, CarTires)
+        self.car.tires = option
