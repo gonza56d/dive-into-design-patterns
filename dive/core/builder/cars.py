@@ -43,6 +43,7 @@ class CarRoof(str, Enum):
 @dataclass
 class Car:
 
+    owner_name: str
     color: Color | None = None
     tires: CarTires | None = None
     engine: CarEngine | None = None
@@ -63,8 +64,8 @@ class Car:
 
 class CarBuilder:
     
-    def __init__(self, **initial_state) -> None:
-        self.car = Car(**initial_state)
+    def __init__(self, owner_name: str, **initial_state) -> None:
+        self.car = Car(owner_name=owner_name, **initial_state)
 
     def _get_enum_option(self, option: str | Enum, enum: Enum) -> Enum:
             if option(isinstance, Enum):

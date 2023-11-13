@@ -20,3 +20,6 @@ class MongoRepo:
     def filter(self, **filters) -> list[dict]:
         results = self._collection.find(filters)
         return [r for r in results]
+
+    def delete(self, **filters) -> None:
+        self._collection.delete_one(filter)
