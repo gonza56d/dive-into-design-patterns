@@ -64,8 +64,8 @@ class Car:
 
 class CarBuilder:
     
-    def __init__(self, owner_name: str, **initial_state) -> None:
-        self.car = Car(owner_name=owner_name, **initial_state)
+    def __init__(self, owner_name: str | None = None, **initial_state) -> None:
+        self.car = Car(owner_name=owner_name, **initial_state) if owner_name is not None else None
 
     def _get_enum_option(self, option: str | Enum, enum: Enum) -> Enum:
             if option(isinstance, Enum):
