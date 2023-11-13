@@ -1,0 +1,27 @@
+version: '3.8'
+
+volumes:
+  local_mongo_data:
+
+services:
+
+  mongo:
+    image: mongo:6.0.4
+    volumes:
+      - local_mongo_data:/data/db
+    env_file:
+      - .env
+    ports:
+      - "27017:27017"
+
+  api:
+    build: .
+    volumes:
+      - .:/dive/
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    command: uvicorn dive.api.main:app --reload --host 0.0.0.0
+    depends_on:
+      - mongo

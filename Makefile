@@ -1,2 +1,5 @@
-run:
-	. venv/bin/activate && uvicorn dive.api.main:app --reload
+build:
+	docker compose build
+
+up:
+	docker compose up
