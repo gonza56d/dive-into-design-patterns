@@ -13,3 +13,7 @@ debug:
 test:
 	docker compose up -d mongo
 	docker compose run --rm --service-ports api pytest
+
+test-case:
+	docker compose up -d mongo
+	docker compose run --rm --service-ports api pytest -k $(TEST)
