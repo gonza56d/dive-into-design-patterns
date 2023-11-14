@@ -9,3 +9,7 @@ debug:
 	docker compose down
 	docker compose up -d mongo
 	docker compose run --rm --service-ports api
+
+test:
+	docker compose up -d mongo
+	docker compose run --rm --service-ports api pytest

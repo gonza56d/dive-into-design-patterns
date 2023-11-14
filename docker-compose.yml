@@ -18,6 +18,7 @@ services:
     build: .
     volumes:
       - ./dive:/app/dive
+      - ./tests:/app/tests
     env_file:
       - .env
     ports:

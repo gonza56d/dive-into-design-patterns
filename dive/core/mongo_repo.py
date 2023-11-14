@@ -34,3 +34,6 @@ class MongoRepo:
 
     def update(self, filter: dict, new_values: dict) -> None:
         self._collection.update_one(filter, {'$set': new_values})
+
+    def clear_collection(self) -> None:
+        self._collection.delete_many({})
