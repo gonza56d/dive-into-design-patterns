@@ -16,7 +16,7 @@ class Builder:
 
     @staticmethod
     def delete_car(owner_name: str):
-        Builder.repo.delete({'owner_name': owner_name})
+        Builder.repo.delete(owner_name=owner_name)
 
     @staticmethod
     def get_car(owner_name: str) -> Car:

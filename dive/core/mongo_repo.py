@@ -30,7 +30,7 @@ class MongoRepo:
         return result
 
     def delete(self, **filters) -> None:
-        self._collection.delete_one(filter)
+        self._collection.delete_one(filters)
 
     def update(self, filter: dict, new_values: dict) -> None:
         self._collection.update_one(filter, {'$set': new_values})
