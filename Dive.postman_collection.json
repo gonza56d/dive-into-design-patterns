@@ -1,0 +1,81 @@
+{
+	"info": {
+		"_postman_id": "c36862a6-608b-4c25-83f4-9f8f6686a174",
+		"name": "Dive",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12280732"
+	},
+	"item": [
+		{
+			"name": "Builder",
+			"item": [
+				{
+					"name": "create_car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/builder/owner_gonza",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"builder",
+								"owner_gonza"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/builder/owner_gonza",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"builder",
+								"owner_gonza"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_car",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"command\": \"set_color\",\n    \"value\": \"PURPLE\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/builder/owner_gonza",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"builder",
+								"owner_gonza"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
