@@ -10,7 +10,10 @@ class MongoRepo:
         self._collection = self._client['dive-mongo-db'][collection]
 
     def write(self, data: dict) -> None:
-        self._collection.insert_one(data)
+        try:
+            self.read(owner_name=data['owner_name'])
+        except NotFound:
+            self._collection.insert_one(data)
 
     def read(self, **filters) -> dict:
         if (result := self._collection.find_one(filters)):
