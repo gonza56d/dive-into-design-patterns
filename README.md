@@ -15,3 +15,10 @@ To run the api, run the command:
 ```
 make up
 ```
+
+## Debugging
+For debugging, you can run:
+```
+make debug
+```
+In this way, you're able to put breakpoint() function calls to open pdb in your terminal.
