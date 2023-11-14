@@ -9,12 +9,12 @@ When running for the first time, first build images:
 ```
 make build
 ```
-You should be able to see a greeting response at [localhost:8000/hello_world](http://localhost:8000/hello_world) when the service is up running.
 
 To run the api, run the command:
 ```
 make up
 ```
+You should be able to see a greeting response at [localhost:8000/hello_world](http://localhost:8000/hello_world) when the service is up running.
 
 ## Debugging
 For debugging, you can run:
