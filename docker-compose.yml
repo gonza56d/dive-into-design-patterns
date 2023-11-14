@@ -17,7 +17,7 @@ services:
   api:
     build: .
     volumes:
-      - .:/dive/
+      - ./dive:/app/dive
     env_file:
       - .env
     ports:
