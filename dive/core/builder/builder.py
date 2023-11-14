@@ -28,7 +28,7 @@ class Builder:
         car = Builder.get_car(owner_name=owner_name)
         car_builder = CarBuilder()
         car_builder.car = car
-        command = update_car._get_command()
+        command = update_car._get_command(car_builder)
         if (value := update_car.value):
             command(value)
         else:

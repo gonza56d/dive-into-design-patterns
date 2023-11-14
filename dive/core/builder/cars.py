@@ -1,43 +1,44 @@
 from dataclasses import dataclass
-from enum import auto, Enum
+from enum import Enum
+
 
 
 class Color(str, Enum):
     """Color options for car."""
-    BLUE = auto()
-    RED = auto()
-    YELLOW = auto()
-    ORANGE = auto()
-    GREEN = auto()
-    PURPLE = auto()
-    GREY = auto()
-    BLACK = auto()
-    WHITE = auto()
+    BLUE = 'BLUE'
+    RED = 'RED'
+    YELLOW = 'YELLOW'
+    ORANGE = 'ORANGE'
+    GREEN = 'GREEN'
+    PURPLE = 'PURPLE'
+    GREY = 'GREY'
+    BLACK = 'BLACK'
+    WHITE = 'WHITE'
 
 
 class CarTires(str, Enum):
     """Tires brand options for car."""
-    BRIDGESTONE = auto()
-    PIRELLI = auto()
-    MICHELIN = auto()
+    BRIDGESTONE = 'BRIDGESTONE'
+    PIRELLI = 'PIRELLI'
+    MICHELIN = 'MICHELIN'
 
 
 class CarEngine(str, Enum):
     """Engine type options for a car."""
-    LINE_FOUR = auto()
-    LINE_FIVE = auto()
-    LINE_SIX = auto()
-    V_FOUR = auto()
-    V_SIX = auto()
-    V_EIGHT = auto()
-    ELECTRIC = auto()
+    LINE_FOUR = 'LINE_FOUR'
+    LINE_FIVE = 'LINE_FIVE'
+    LINE_SIX = 'LINE_SIX'
+    V_FOUR = 'V_FOUR'
+    V_SIX = 'V_SIX'
+    V_EIGHT = 'V_EIGHT'
+    ELECTRIC = 'ELECTRIC'
 
 
 class CarRoof(str, Enum):
     """Roof type options for a car."""
-    REGULAR = auto()
-    CONVERTIBLE = auto()
-    OPEN_TOP = auto()
+    REGULAR = 'REGULAR'
+    CONVERTIBLE = 'CONVERTIBLE'
+    OPEN_TOP = 'OPEN_TOP'
 
 
 @dataclass
@@ -67,15 +68,15 @@ class CarBuilder:
     def __init__(self, owner_name: str | None = None, **initial_state) -> None:
         self.car = Car(owner_name=owner_name, **initial_state) if owner_name is not None else None
 
-    def _get_enum_option(self, option: str | Enum, enum: Enum) -> Enum:
-            if option(isinstance, Enum):
+    def _get_enum_option(self, option: str | Enum, enum_: Enum) -> Enum:
+            if isinstance(option, Enum):
                 return option
             try:
-                return enum(option)
+                return enum_(option)
             except ValueError:
                 raise ValueError(
-                    f'"{option}" is not a valid option for {enum.__class__.__name__}.\n'
-                    f'Try one of the following: {",".join(k for k in dict(enum.__members__).keys())}.'
+                    f'"{option}" is not a valid option for {enum_.__class__.__name__}.\n'
+                    f'Try one of the following: {",".join(k for k in dict(enum_.__members__).keys())}.'
                 )
 
     def set_color(self, color: str | Color) -> None:
