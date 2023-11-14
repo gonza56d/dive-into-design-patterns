@@ -33,4 +33,4 @@ class TestBuilder:
 
     def test_get_car_not_found(self):
         with pytest.raises(NotFound):
-            response = self.client.get(f'{self.url}/{self.owner_name}')
+            self.client.get(f'{self.url}/{self.owner_name}')
