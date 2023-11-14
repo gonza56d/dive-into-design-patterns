@@ -2,7 +2,10 @@ from abc import ABC, abstractmethod
 
 
 class ClientError(ABC, Exception):
-    
+
+    def __init__(self) -> None:
+        super().__init__(self.message)
+
     @property
     def status_code(self) -> int:
         return 400
@@ -14,9 +17,6 @@ class ClientError(ABC, Exception):
 
 
 class NotFound(ClientError):
-
-    def __init__(self) -> None:
-        super().__init__(self.message)
 
     @property
     def status_code(self) -> int:
