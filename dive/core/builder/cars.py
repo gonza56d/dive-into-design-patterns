@@ -47,7 +47,7 @@ class Car:
     color: Color | None = None
     tires: CarTires | None = None
     engine: CarEngine | None = None
-    roof: CarRoof = CarRoof.OPEN_TOP()
+    roof: CarRoof = CarRoof.OPEN_TOP
     air_conditioner: bool = False
     stereo: bool = False
     gps: bool = False

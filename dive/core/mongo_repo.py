@@ -14,12 +14,17 @@ class MongoRepo:
 
     def read(self, **filters) -> dict:
         if (result := self._collection.find_one(filters)):
+            del result['_id']
             return result
         raise NotFound()
 
     def filter(self, **filters) -> list[dict]:
         results = self._collection.find(filters)
-        return [r for r in results]
+        result = []
+        for r in results:
+            del r['_id']
+            result.append(results)
+        return result
 
     def delete(self, **filters) -> None:
         self._collection.delete_one(filter)

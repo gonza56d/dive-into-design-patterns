@@ -20,7 +20,7 @@ class Builder:
 
     @staticmethod
     def get_car(owner_name: str) -> Car:
-        result = Builder.repo.read({'owner_name': owner_name})
+        result = Builder.repo.read(owner_name=owner_name)
         return Car(**result)
 
     @staticmethod
